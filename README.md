@@ -26,7 +26,7 @@ SpringMVC的总结起来：
 #### 3.2 导入相关依赖
 
 修改pom.xml依赖，如下
-```
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -81,7 +81,7 @@ SpringMVC的总结起来：
 
 #### 3.3 修改web.xml配置文件,注册中心控制器DispatcherServlet
 Spring MVC框架像许多其他MVC框架一样, 请求驱动,围绕一个中心Servlet分派请求及提供其他功能，DispatcherServlet是一个实际的Servlet (它继承自HttpServlet 基类)。当发起请求时被前置的控制器拦截到请求，根据请求参数生成代理请求，找到请求对应的实际控制器，控制器处理请求，创建数据模型，访问数据库，将模型响应给中心控制器，控制器使用模型与视图渲染视图结果，将结果返回给中心控制器，再将结果返回给请求者。如下配置：
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -115,7 +115,7 @@ Spring MVC框架像许多其他MVC框架一样, 请求驱动,围绕一个中心S
 
 #### 3.4、添加Spring MVC配置文件
 如下所示：
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -159,7 +159,7 @@ Spring MVC框架像许多其他MVC框架一样, 请求驱动,围绕一个中心S
 #### 3.5、创建控制器
 在src/main 文件夹下新建java文件夹，指定java为Sources文件(在project structure中，快捷键ctrl+Alt+shift+S)。其中Model是视图模型 ,返回字符串 home 为去掉后缀的jsp文件名
 
-```
+```java
 @Controller
 @RequestMapping("/view")
 public class Test {
@@ -174,7 +174,7 @@ public class Test {
 ```
 #### 3.6、创建视图
 在view文件下新建home.jsp文件，内容如下
-```
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
